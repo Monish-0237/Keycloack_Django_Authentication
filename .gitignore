@@ -1,0 +1,32 @@
+# Python / Django
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+.venv/
+venv/
+*.sqlite3
+media/
+
+# Node / Vite / React
+node_modules/
+dist/
+.parcel-cache/
+.cache/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files (secrets)
+.env
+.env.*
+backend/.env
+my_frontend/.env
+my_frontend/.env.*
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
