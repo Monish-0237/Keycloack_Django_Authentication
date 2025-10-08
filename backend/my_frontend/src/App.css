@@ -1,42 +1,121 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  font-family: system-ui, sans-serif;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main {
+  flex: 1;
+  position: relative;
+  min-height: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.map-container {
+  width: 100%;
+  height: 100%;
 }
 
-.card {
-  padding: 2em;
+/* Header */
+.app-header {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #111;
+  color: white;
 }
 
-.read-the-docs {
-  color: #888;
+.btn-logout {
+  background: #f33;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Loading pill */
+.loading-box {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 6px 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+  font-size: 13px;
+  color: #000;
+}
+
+/* Search */
+.searchbar-wrap { position: absolute; top: 12px; left: 12px; z-index: 2; width: 460px; }
+.searchbar-form { display: flex; gap: 8px; }
+.searchbar-input { flex: 1; padding: 10px; border-radius: 6px; border: 1px solid #444; background: #2b2b2b; color: #fff; }
+.searchbar-btn { padding: 8px 12px; border-radius: 6px; }
+
+/* Autocomplete */
+.searchbar-results {
+  margin-top: 8px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+  max-height: 260px;
+  overflow-y: auto;
+}
+.searchbar-result { display: block; width: 100%; text-align: left; padding: 10px 12px; border: none; background: transparent; cursor: pointer; }
+.result-title { font-weight: 600; }
+.result-sub { font-size: 12px; color: #555; }
+
+/* Description box */
+.description-box {
+  position: absolute;
+  top: 50px;
+  right: 12px;
+  max-width: 380px;
+  background: #fff;
+  color: #000;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.desc-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.description-box h2 { font-size: 16px; margin: 0; }
+.desc-close { font-size: 12px; padding: 2px 6px; border: none; background: #eee; cursor: pointer; }
+.extract { margin-top: 6px; font-size: 13px; line-height: 1.4; }
+.nearby-title { margin-top: 10px; font-weight: 600; font-size: 14px; }
+
+/* Nearby list */
+.nearby-list { margin: 6px 0 0 0; padding-left: 16px; max-height: 260px; overflow-y: auto; }
+.nearby-list li { margin-bottom: 6px; font-size: 13px; }
+.nearby-link { background: none; border: none; padding: 0; cursor: pointer; color: #0b63ce; text-align: left; }
+.nearby-link:hover { text-decoration: underline; }
+.nearby-sub { font-size: 12px; color: #555; }
+
+/* ---- Marker highlight (native Mapbox pin) ----
+   We enlarge ONLY the marker element (bottom-centered), keeping the anchor stable. */
+.mapboxgl-marker.pin--selected {
+  transform: translateY(-3px) scale(1.25);
+  transform-origin: bottom center;
+  z-index: 3;
+  transition: transform .12s ease;
+}
+
+/* Popup styling for selected pin name */
+.mapboxgl-popup.poi-popup { padding-bottom: 0; }
+.mapboxgl-popup.poi-popup .mapboxgl-popup-content {
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.3;
 }

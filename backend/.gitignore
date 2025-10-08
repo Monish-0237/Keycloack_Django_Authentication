@@ -1,0 +1,36 @@
+# ---------- Frontend (Vite/React)
+my_frontend/node_modules/
+my_frontend/dist/
+my_frontend/.env
+my_frontend/.env.local
+my_frontend/*.log
+
+# If you accidentally installed deps at repo root:
+node_modules/
+dist/
+
+# ---------- Backend (Django)
+**/__pycache__/
+**/*.py[cod]
+backend/.venv/
+backend/venv/
+backend/.pytest_cache/
+backend/db.sqlite3
+
+# If you put a venv at repo root, ignore it too:
+.venv/
+
+# ---------- Secrets / tokens
+.env
+backend/.env
+api/.env
+my_frontend/.env
+*.pem
+*.key
+token.json
+
+# ---------- Editors / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

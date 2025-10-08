@@ -4,6 +4,8 @@ import { ReactKeycloakProvider } from '@react-keycloak/web';
 import App from './App.jsx';
 import keycloak from './keycloak.js';
 import './index.css';
+import "./App.css";
+
 
 createRoot(document.getElementById('root')).render(
   <ReactKeycloakProvider
